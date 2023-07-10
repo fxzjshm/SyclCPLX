@@ -1790,6 +1790,8 @@ get_init() {
 
 } // namespace cplex::detail
 
+#ifdef SYCL_IMPLEMENTATION_ONEAPI
+
 /* REDUCE_OVER_GROUP'S OVERLOADS */
 
 /// Complex specialization
@@ -2129,6 +2131,8 @@ OutPtr joint_exclusive_scan(Group g, InPtr first, InPtr last, OutPtr result,
 
   return joint_exclusive_scan(g, first, last, result, init, binary_op);
 }
+
+#endif  // SYCL_IMPLEMENTATION_ONEAPI
 
 _SYCL_EXT_CPLX_END_NAMESPACE_STD
 
